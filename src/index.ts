@@ -11,7 +11,7 @@ new Elysia()
         <html lang="en">
             <head>
                 <title>Hello World</title>
-            </head>
+            </head>f
             <body>
                 <h1>Hello World</h1>
             </body>
