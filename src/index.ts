@@ -1,20 +1,20 @@
-import { Elysia } from 'elysia'
-import { html } from '@elysiajs/html'
-import { mongoose } from "@lucia-auth/adapter-mongoose";
-new Elysia()
-    .use(html())
-    .get(
-        '/',
-        () => console.log(mongoose)
-    )
-    .get('/jsx', () => (`
-        <html lang="en">
-            <head>
-                <title>Hello World</title>
-            </head>f
-            <body>
-                <h1>Hello World</h1>
-            </body>
-        </html>`
-    ))
-    .listen(8080)
+import Elysia from "elysia";
+import dotenv from 'dotenv';
+import { html } from "@elysiajs/html";
+import { dirname } from "path";
+
+// Load environment variables from .env file
+dotenv.config();
+
+const app = new Elysia();
+
+// Retrieve SERVER_PORT from environment variables or set a default value
+const SERVER_PORT = process.env.SERVER_PORT || 3000;
+
+app.use(html())
+
+app.get('/', async() => new Response(await Bun.file("src/views/index.html") ));
+
+app.listen(SERVER_PORT, () => {
+    console.log(`Server is running on port ${SERVER_PORT}`);
+});

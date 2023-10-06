@@ -8,6 +8,7 @@
   "dependencies": {
     "@elysiajs/html": "^0.7.0",
     "@lucia-auth/adapter-mongoose": "^3.0.0",
+    "dotenv": "^16.3.1",
     "elysia": "latest",
     "lucia": "^2.7.1",
     "mongoose": "^7.5.3"
