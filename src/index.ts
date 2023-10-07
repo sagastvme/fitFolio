@@ -2,7 +2,7 @@ import Elysia from "elysia";
 import dotenv from 'dotenv';
 import { html } from "@elysiajs/html";
 import { dirname } from "path";
-
+const path = require('path');
 // Load environment variables from .env file
 dotenv.config();
 
