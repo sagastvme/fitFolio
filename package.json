@@ -32,5 +32,11 @@
 		"vite": "^4.4.2",
 		"vitest": "^0.32.2"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"@types/uuid": "^9.0.5",
+		"mongodb": "^6.1.0",
+		"mongoose": "^7.6.2",
+		"uuid": "^9.0.1"
+	}
 }
