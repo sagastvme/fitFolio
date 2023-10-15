@@ -3,7 +3,7 @@
 	import '../app.css';
 	import { page } from '$app/stores';
 	export let data;
-  let showMenu=true;
+  let showMenu=false;
   function openMobileMenu(){
       showMenu=!showMenu
   }
@@ -33,7 +33,12 @@
   </ul>
 </div>
 
+<div class="bg-gradient-to-r from-black to-red-950 text-white">
+  <slot />
 
-<slot />
+
+</div>
+
+
 
 
