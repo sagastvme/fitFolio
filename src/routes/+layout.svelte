@@ -10,6 +10,7 @@
 </script>
 
 <nav class="bg-gradient-to-r from-black to-red-950 text-white h-20">
+  <!-- <img src="/favicon.png" class="rounded-full h-12 md:h-20 ml-5" alt="Fit Folio logo" /> -->
   <div id="mobileMenu" class="md:hidden flex flex-row items-center h-full w-full justify-center">
     <a href="/">
       <img src="/favicon.png" class="rounded-full h-12 md:h-20 ml-5" alt="Fit Folio logo" />
