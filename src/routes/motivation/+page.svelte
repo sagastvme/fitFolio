@@ -114,6 +114,9 @@
 	>
 </form>
 
-{#each quotes as quote (quote._id)}
-	<Quote {quote} />
-{/each}
+<div class="flex flex-col justify-center gap-10 md:flex-row md:flex-wrap ">
+	{#each quotes as quote (quote._id)}
+	  <Quote {quote} />
+	{/each}
+  </div>
+  
