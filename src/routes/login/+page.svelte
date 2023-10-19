@@ -1,18 +1,25 @@
 <script lang="ts">
     import type { PageData } from './$types';
     export let data;
-   async  function sendForm(){
+   async  function sendForm(event){
+    event.preventDefault(); 
+  const form = event.target; 
+  const formData = new FormData(form);
         const res = await fetch('/login', {
 			method: 'POST',
-			body: JSON.stringify({
-				'hola':'hola'
-			})
+			
+				body: formData
+			
 		})
 		
 		const json = await res.json()
-		let result = JSON.stringify(json)
-    }
-    // export let data: PageData;
+        if(json.error){
+            alert(json.message);
+            form.reset();
+        }else{
+            //login logic in frontend
+        }
+        }    // export let data: PageData;
 </script>
 
 
