@@ -14,9 +14,10 @@ export async function POST({ request }) {
 
    //db login
    //if not right credentials 
-   logIn((formData))
-   
-
+   const response =await logIn((formData))
+   const responseJson = await response.json();
+   console.log('final response = ', responseJson)
+   return json(responseJson)
    return json({
       'error':true,'message': message.wrongCredentials
    });

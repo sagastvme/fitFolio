@@ -1,7 +1,8 @@
-import { MongoClient } from 'mongodb';
+import { MongoClient, ObjectId } from 'mongodb';
 import { MONGO_URL } from '$env/static/private'
 import UserSchema from './schema/userSchema';
 import bcrypt from "bcrypt";
+import { json } from '@sveltejs/kit';
 const saltRounds = 10;
 
 const client = new MongoClient(MONGO_URL)
@@ -15,36 +16,37 @@ export async function logIn(credentials) {
     const email = credentials.get('email');
     const password = credentials.get('password');
     const hashedPassword = await hashPassword(password);
-    console.log('regular password = ', password);
-    console.log('hashed passs = ', hashedPassword)
     const rememberMe = credentials?.get('remember') ? true : false;
 
     //check if guy exists in db
+    const userInDatabase =await  client.db().collection('users').findOne({'email':email});
+    if(userInDatabase===null){
+        return json({'error':true, 'message': 'User not found please check the email'})
+    }
+   
+   const correctCredentials = await validateUser(password, userInDatabase.password)
 
-    //insert one for testing
+   if (correctCredentials){
+
+        if(rememberMe){
+            //set a cookie or a localStorage so we can remember the guy 
+        }
+
+    return json({'error':false})
+   }else{
+    return json({'error':true, 'message':'Wrong password'});
+   }
 
 
-    //check if hashed === the pass in db
-//     bcrypt
-//   .hash(password, saltRounds)
-//   .then(hash => {
-//           userHash = hash 
-//     console.log('Hash ', hash)
-//     validateUser(hash)
-//   })
-//   .catch(err => console.error(err.message))
+   //add test user and index for unique emails
+    // client.db().collection('users').createIndex({email: 1 },{unique:true})
+    // const testUser = new UserSchema('eduardo@gmail.com', '$2b$10$TAWRr7xAdTw59T45Ss2f0eNPRD9NNr.0wpU3Q8NNvbAEN7zyp6.yy', new ObjectId(), 'lb');
+    // client.db().collection('users').insertOne(testUser);
+}
 
-// function validateUser(hash) {
-//     bcrypt
-//       .compare(password, hash)
-//       .then(res => {
-//         console.log(res) // return true
-//       })
-//       .catch(err => console.error(err.message))        
-// }
+export async function registerUser(params:FormData) {
 
-    let users = await client.db().collection('users').find({}).toArray();
-    console.log('users = ', users)
+    
 }
 
 async function hashPassword(password) {
@@ -61,6 +63,15 @@ async function hashPassword(password) {
     return emailRegex.test(email);
 }
 
+async function validateUser(password, hash) {
+    try {
+      const res = await bcrypt.compare(password, hash);
+      return res;
+    } catch (error) {
+      return null;
+    }
+  }
+  
 
 
 
