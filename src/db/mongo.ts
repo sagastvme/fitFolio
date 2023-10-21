@@ -29,7 +29,7 @@ export async function logIn(credentials) {
    if (correctCredentials){
 
         if(rememberMe){
-            //set a cookie or a localStorage so we can remember the guy 
+            //set a cookie or a localStorage so we can remember the guy I have to check if the value already exists in store
         }
 
     return json({'error':false})
