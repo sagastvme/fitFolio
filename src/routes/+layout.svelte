@@ -1,14 +1,35 @@
 <script>
-	/** @type {import('./$types').PageData} */
-	import '../app.css';
-	import { page } from '$app/stores';
-	export let data;
-  let showMenu=false;
-  function openMobileMenu(){
-      showMenu=!showMenu
+  import '../app.css';
+  import { page } from '$app/stores';
+  import { setContext } from 'svelte';
+  import { getContext } from 'svelte';
+  import { onMount, afterUpdate } from 'svelte';
+  import { writable,get } from "svelte/store";
+  export let data;
+  let isLoggedIn = false;
+
+  let showMenu = false;
+
+  function openMobileMenu() {
+    showMenu = !showMenu;
   }
+
+  onMount(() => {
+  if (typeof window !== 'undefined') {
+    try {
+      const storedData = JSON.parse(localStorage.getItem('loggedIn'));
+      isLoggedIn= storedData.loggedIn;
+    } catch (error) {
+      console.error('Error parsing data from localStorage:', error);
+      isLoggedIn = false; // Set a default value if parsing fails.
+    }
+  }
+});
+
 </script>
 
+<h1 class="text-white">{isLoggedIn} value should be here</h1>
+{#if isLoggedIn}
 <nav class="bg-gradient-to-r from-black to-red-950 text-white h-20">
   <!-- <img src="/favicon.png" class="rounded-full h-12 md:h-20 ml-5" alt="Fit Folio logo" /> -->
   <div id="mobileMenu" class="md:hidden flex flex-row items-center h-full w-full justify-center">
@@ -33,6 +54,12 @@
     {/each}
   </ul>
 </div>
+
+{:else}
+    <!-- Render content for non-logged-in users -->
+    <p class="text-white">Welcome to the application. Please log in to access your account.</p>
+    <slot />
+  {/if}
 
 <div class="bg-gradient-to-r from-black to-red-950 text-white">
   <slot />

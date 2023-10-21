@@ -1,5 +1,6 @@
 import { json } from "@sveltejs/kit";
 import {logIn, validEmail} from "../../db/mongo";
+
 export async function POST({ request }) {
    const formData = await request.formData();
    let message={
@@ -12,18 +13,9 @@ export async function POST({ request }) {
       return json({ 'error':true, 'message':  message.incompleteForm});
    }
 
-   //db login
-   //if not right credentials 
    const response =await logIn((formData))
    const responseJson = await response.json();
-   console.log('final response = ', responseJson)
    return json(responseJson)
-   return json({
-      'error':true,'message': message.wrongCredentials
-   });
-
-   //else refresh the page and change the entire ui
-
 }
 
 

@@ -2,6 +2,7 @@ import { MongoClient, ObjectId } from 'mongodb';
 import { MONGO_URL } from '$env/static/private'
 import UserSchema from './schema/userSchema';
 import bcrypt from "bcrypt";
+
 import { json } from '@sveltejs/kit';
 const saltRounds = 10;
 
@@ -16,7 +17,6 @@ export async function logIn(credentials) {
     const email = credentials.get('email');
     const password = credentials.get('password');
     const hashedPassword = await hashPassword(password);
-    const rememberMe = credentials?.get('remember') ? true : false;
 
     //check if guy exists in db
     const userInDatabase =await  client.db().collection('users').findOne({'email':email});
@@ -27,12 +27,7 @@ export async function logIn(credentials) {
    const correctCredentials = await validateUser(password, userInDatabase.password)
 
    if (correctCredentials){
-
-        if(rememberMe){
-            //set a cookie or a localStorage so we can remember the guy I have to check if the value already exists in store
-        }
-
-    return json({'error':false})
+    return json({'error':false, 'email': userInDatabase.email, 'id':userInDatabase._id.toString()})
    }else{
     return json({'error':true, 'message':'Wrong password'});
    }
