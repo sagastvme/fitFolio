@@ -17,14 +17,22 @@
   onMount(() => {
   if (typeof window !== 'undefined') {
     try {
+      if(localStorage.getItem('loggedIn')){
       const storedData = JSON.parse(localStorage.getItem('loggedIn'));
       isLoggedIn= storedData.loggedIn;
-    } catch (error) {
+    }
+   } catch (error) {
       console.error('Error parsing data from localStorage:', error);
       isLoggedIn = false; // Set a default value if parsing fails.
     }
   }
 });
+
+
+function logOut(){
+  localStorage.removeItem('loggedIn');
+    location.href = '/';
+}
 
 </script>
 
@@ -53,12 +61,14 @@
       </li>
     {/each}
   </ul>
+  <form class="cursor-pointer" on:submit={logOut}>
+  <input type="submit" class="cursor-pointer w-full text-center mb-4 text-3xl" value="Log out">
+  </form>
 </div>
 
 {:else}
     <!-- Render content for non-logged-in users -->
     <p class="text-white">Welcome to the application. Please log in to access your account.</p>
-    <slot />
   {/if}
 
 <div class="bg-gradient-to-r from-black to-red-950 text-white">
