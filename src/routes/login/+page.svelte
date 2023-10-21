@@ -17,13 +17,15 @@
 			alert(json.message);
 			form.reset();
 		} else {
-            console.log('the response = ', json)
-            localStorage.setItem('loggedIn', JSON.stringify({
-    email: json.email,
-    loggedIn: true
-  }));
-			console.log(' i have set a locacl storeafe ', localStorage.getItem('loggedIn'));
-            location.reload(true);
+			console.log('the response = ', json);
+			localStorage.setItem(
+				'loggedIn',
+				JSON.stringify({
+					email: json.email,
+					loggedIn: true
+				})
+			);
+			location.href = '/';
 		}
 	} // export let data: PageData;
 </script>

@@ -69,8 +69,15 @@ function logOut(){
 {:else}
     <!-- Render content for non-logged-in users -->
     <p class="text-white">Welcome to the application. Please log in to access your account.</p>
+    <ul class="">
+      {#each data.sections as section (section.slug)}
+        <li class="w-full text-center mb-4">
+          <a on:click={openMobileMenu} href={section.slug} class="text-3xl w-full text-white">{section.title}</a>
+        </li>
+      {/each}
+    </ul>
   {/if}
-
+  
 <div class="bg-gradient-to-r from-black to-red-950 text-white">
   <slot />
 
