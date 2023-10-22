@@ -10,6 +10,7 @@ class UserSchema {
     objective: string;
     routine_updated_at: string;
     updated_weight: string;
+    uuid: string;
 
     constructor(
         email: string,
@@ -22,7 +23,8 @@ class UserSchema {
         routine: object, // Specify the type as 'object'
         objective: string,
         routine_updated_at: string,
-        updated_weight: string
+        updated_weight: string,
+        uuid: string
     ) {
         this.email = email;
         this.password = password;
@@ -35,6 +37,7 @@ class UserSchema {
         this.objective = objective;
         this.routine_updated_at = routine_updated_at;
         this.updated_weight = updated_weight;
+        this.uuid = uuid
     }
 }
 
