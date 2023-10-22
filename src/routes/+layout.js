@@ -13,7 +13,7 @@ export function load() {
     let routes = ['Home', 'Motivation', 'Test', 'Sign up', 'Log in'];
     
     if (isLoggedIn) {
-        routes = ['Home', 'Motivation', 'Test'];
+        routes = ['Home', 'Motivation', 'My Routine', 'My data'];
     }
 
     const sections = routes.map((item) => {

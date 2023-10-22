@@ -36,3 +36,25 @@ npm run build
 You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+
+
+
+
+1. Register client
+
+2. Calculate BMI blablabla
+
+3. Endpoint in order to create a routine
+
+4. Create routine in mongo
+
+5. Show graphs
+
+6. Preferred units.
+
+7. Nice font
+
+8. Export data to excel/csv/pdf
+
+
+9. Protect routes if user is logged in or not

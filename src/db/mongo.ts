@@ -68,6 +68,26 @@ async function validateUser(password, hash) {
   }
   
 
+  export async function register(formData) {
+    const email = formData.get('email');
+    const password = formData.get('password');
+    const weight = formData.get('weight');
+    const height = formData.get('height');
+    const objective = formData.get('objective');
+    const userInDatabase =await  client.db().collection('users').findOne({'email':email});
+    if(userInDatabase!==null){
+        return json({'error':true, 'message': 'Email already taken'});
+    }
+const hashedPassword =await hashPassword(password)
+    const newUser = new UserSchema(email, hashedPassword, new ObjectId(), new Date(), weight, height, objective, null)
+    await  client.db().collection('users').insertOne(newUser);
+
+console.log('the user im about to insert = ', newUser);
+    return json({'error':false, 'email':newUser.email})
+
+   
+}
+
 
 
 export default client.db();
