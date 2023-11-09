@@ -10,11 +10,11 @@ class RegisterController extends Controller
 {
     public function index(Request $request, $locale): View
     {
-        if (!in_array($locale, ['en', 'es', 'fr'])) {
-            abort(400);
+        if (in_array($locale, ['en', 'es', 'fr', 'it', 'pt','de','cn'])) {
+            App::setLocale($locale);
+
         }
 
-        App::setLocale($locale);
 
         $lang = trans('auth.failed'); // Example translation
         $welcomeMessage = 'Welcome Message'; // Replace with your actual message
@@ -26,7 +26,7 @@ class RegisterController extends Controller
     {
 
 
-       
+
         $lang = trans('auth.failed'); // Example translation
         $welcomeMessage = 'Welcome Message'; // Replace with your actual message
         $title = 'Page Title'; // Replace with your actual title
