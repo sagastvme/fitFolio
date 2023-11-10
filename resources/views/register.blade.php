@@ -1,11 +1,10 @@
 @extends('layout')
 
 @section('content')
-    <p> {{ $welcomeMessage }}</p>
-    <p>{{ __('auth.failed') }}</p>
-    <p>{{ $lang }}</p>
+    <p> {{ $header }}</p>
+    <p>{{ $body }}</p>
 @endsection
 
 @section('title')
-    {{ $title }}
+    {{ $footer }}
 @endsection

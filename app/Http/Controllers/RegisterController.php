@@ -32,12 +32,6 @@ class RegisterController extends Controller
     }
 
     public  function  test2(Request $request){
-        echo App::getLocale();
-        $lang = trans('auth.throttle'); // Example translation
-        $welcomeMessage = 'test'; // Replace with your actual message
-        $title = 'Test'; // Replace with your actual title
-
-        return view('register', ['lang' => $lang, 'welcomeMessage' => $welcomeMessage, 'title' => $title]);
 
     }
 }

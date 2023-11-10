@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use \App\Http\Controllers\RegisterController;
+use \App\Http\Controllers\HomeController;
+use \App\Http\Controllers\LanguageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,11 +14,14 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/register', [\App\Http\Controllers\RegisterController::class, 'test2'])->name('register');
-Route::get('/', [\App\Http\Controllers\RegisterController::class, 'test2'])->name('home');
 
-Route::get('/lang/{language?}', [\App\Http\Controllers\LanguageController::class, 'setLanguage'])
+
+
+Route::get('/register', [RegisterController::class, 'index'])->name('register');
+
+Route::get('/lang/{language}', [LanguageController::class, 'setLanguage'])
     ->name('setLanguage')
     ->where('language', 'en|es|fr|it|pt|de|cn');
 
