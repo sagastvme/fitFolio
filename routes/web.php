@@ -14,8 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/register', [\App\Http\Controllers\RegisterController::class, 'test2'])->name('register');
+Route::get('/', [\App\Http\Controllers\RegisterController::class, 'test2'])->name('home');
 
-Route::get('/{language?}', [\App\Http\Controllers\RegisterController::class, 'index'])
-    ->name('register')
+Route::get('/lang/{language?}', [\App\Http\Controllers\LanguageController::class, 'setLanguage'])
+    ->name('setLanguage')
     ->where('language', 'en|es|fr|it|pt|de|cn');
 

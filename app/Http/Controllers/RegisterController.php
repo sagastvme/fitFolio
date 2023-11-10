@@ -10,10 +10,7 @@ class RegisterController extends Controller
 {
     public function index(Request $request, $locale = 'en'): View
     {
-        if (in_array($locale, ['en', 'es', 'fr', 'it', 'pt','de','cn'])) {
-            App::setLocale($locale);
-echo App::getLocale();
-        }
+
 
 
         $lang = trans('auth.failed'); // Example translation
