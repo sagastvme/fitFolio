@@ -9,6 +9,17 @@
 </head>
 <body class="antialiased">
 <h1 class="bg-gray-100 text-xl">Fit Folio</h1>
+
+@auth()
+
+@endauth
+
+
+@guest()
+    <nav></nav>
+    <x-alert type="error" message="TEST PAPI"/>
+@endguest
+
 <a class="bg-red-50" href="{{route('register')}}">Injected content should be under me</a>
 @yield('content')
 </body>

@@ -10,14 +10,13 @@ class RegisterController extends Controller
 {
     public function index(Request $request, $locale = 'en'): View
     {
-        $lang = trans('auth.failed'); // Example translation
+        $header = trans('welcome.header'); // Example translation
         $welcomeMessage = 'Welcome Message'; // Replace with your actual message
         $title = 'Page Title'; // Replace with your actual title
-
-        return view('register', ['lang' => $lang, 'welcomeMessage' => $welcomeMessage, 'title' => $title]);
+        $body = 'Page Title';
+        $footer = 'Page Title';
+        return view('register', compact('header',  'welcomeMessage', 'title', 'body','footer'));
     }
-
-
 
 }
 
