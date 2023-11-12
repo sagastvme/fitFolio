@@ -10,20 +10,6 @@ class RegisterController extends Controller
 {
     public function index(Request $request, $locale = 'en'): View
     {
-
-
-
-        $lang = trans('auth.failed'); // Example translation
-        $welcomeMessage = 'Welcome Message'; // Replace with your actual message
-        $title = 'Page Title'; // Replace with your actual title
-
-        return view('register', ['lang' => $lang, 'welcomeMessage' => $welcomeMessage, 'title' => $title]);
-    }
-    public function index2(Request $request): View
-    {
-
-
-
         $lang = trans('auth.failed'); // Example translation
         $welcomeMessage = 'Welcome Message'; // Replace with your actual message
         $title = 'Page Title'; // Replace with your actual title
@@ -31,8 +17,7 @@ class RegisterController extends Controller
         return view('register', ['lang' => $lang, 'welcomeMessage' => $welcomeMessage, 'title' => $title]);
     }
 
-    public  function  test2(Request $request){
 
-    }
+
 }
 
