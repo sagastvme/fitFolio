@@ -20,6 +20,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
+Route::get('/login', [RegisterController::class, 'index'])->name('login');
 
 Route::get('/lang/{language}', [LanguageController::class, 'setLanguage'])
     ->name('setLanguage')

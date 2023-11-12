@@ -16,8 +16,8 @@
 
 
 @guest()
-    <nav></nav>
-    <x-alert type="error" message="TEST PAPI"/>
+    <x-guest-menu/>
+
 @endguest
 
 <a class="bg-red-50" href="{{route('register')}}">Injected content should be under me</a>
