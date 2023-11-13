@@ -4,10 +4,11 @@ namespace App\View\Components;
 
 use Closure;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\View\Component;
 
-class GuestMenu extends Component
+class NavMenu extends Component
 {
     /**
      * Create a new component instance.
@@ -22,7 +23,11 @@ class GuestMenu extends Component
      */
     public function render(): View|Closure|string
     {
-        $routes = Lang::get('routes');
-        return view('components.guest-menu', compact('routes'));
+        if (Auth::check()) {
+        } else {
+            $routes = Lang::get('routes');
+        }
+        return view('components.nav-menu', compact('routes'));
+
     }
 }

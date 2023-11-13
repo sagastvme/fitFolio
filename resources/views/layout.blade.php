@@ -16,7 +16,7 @@
 
 
 @guest()
-    <x-guest-menu/>
+    <x-nav-menu/>
 
 @endguest
 
