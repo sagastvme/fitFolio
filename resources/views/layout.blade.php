@@ -5,22 +5,15 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}" >
     <title>@yield('title')</title>
 </head>
 <body class="antialiased">
+<div id="menu">
 <h1 class="bg-gray-100 text-xl">Fit Folio</h1>
+<x-nav-menu/>
+</div>
 
-@auth()
-
-@endauth
-
-
-@guest()
-    <x-nav-menu/>
-
-@endguest
-
-<a class="bg-red-50" href="{{route('register')}}">Injected content should be under me</a>
 @yield('content')
 </body>
 </html>

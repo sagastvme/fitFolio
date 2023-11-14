@@ -1,0 +1,13 @@
+#menu {
+    display: flex;
+    background-color: orange;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#menu > nav > ul> a{
+text-decoration-color: red;
+    color: red;
+    gap: 10px;
+}

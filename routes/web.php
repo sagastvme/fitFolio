@@ -26,3 +26,7 @@ Route::get('/lang/{language}', [LanguageController::class, 'setLanguage'])
     ->name('setLanguage')
     ->where('language', 'en|es|fr|it|pt|de|cn');
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

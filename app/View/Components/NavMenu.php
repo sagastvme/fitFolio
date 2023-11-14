@@ -25,7 +25,7 @@ class NavMenu extends Component
     {
         if (Auth::check()) {
         } else {
-            $routes = Lang::get('routes');
+            $routes = Lang::get('guestRoutes');
         }
         return view('components.nav-menu', compact('routes'));
 
