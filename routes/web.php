@@ -15,8 +15,6 @@ use \App\Http\Controllers\LanguageController;
 |
 */
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 
 
 

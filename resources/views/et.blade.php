@@ -7,14 +7,10 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('welcome.header') }}</div>
+                    <div class="card-header">{{ config('app.name', 'Laravel') }}</div>
 
                     <div class="card-body">
-
-{{$lang}}
-                        {{trans('welcome.header')}}
-                        {{$test}}
-                        {{ __('You are logged in!') }}
+                        <p>This is the body and here I explain what the app does blablabla</p>
                     </div>
                 </div>
             </div>
