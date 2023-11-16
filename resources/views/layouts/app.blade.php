@@ -90,12 +90,10 @@
         </main>
         <!-- Footer -->
         <footer class="text-center text-lg-start bg-light text-muted">
-
-
             <!-- Copyright -->
             <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
                 © {{now()->year}} Made with love by:
-                <a class="text-reset fw-bold" href="https://github.com/sagastvme">Sagastvme</a>
+                <a class="text-reset fw-bold" href="{{config('dev.github', 'https://github.com/sagastvme')}}">{{ config('app.dev', 'Sagastvme') }}</a>
                 <span>Last user who visited this website is from {{session('lastVisit')}} </span>
             </div>
 

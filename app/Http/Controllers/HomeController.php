@@ -33,7 +33,7 @@ class HomeController extends Controller
 
             return view('home');
         }
-         return view('et', compact('lang', 'test'));
+         return view('et');
 
     }
 
@@ -42,20 +42,16 @@ class HomeController extends Controller
         $lastVisitSession = session('lastVisit');
 
         if (!$lastVisitSession) {
-            echo 'if';
             $location = Location::get('https://' . $request->ip());
             $lastVisitSession = [$location->regionName, $location->countryCode];
         } else {
             $lastVisitSession = explode(' ', $lastVisitSession);
         }
-
         [$region, $country] = $lastVisitSession;
-
         $lastVisit = LastVisit::orderBy('id', 'DESC')->firstOrNew();
         if ($lastVisit->region != $region || $lastVisit->country != $country) {
             $lastVisit->update(['region' => $region, 'country' => $country]);
         }
-
         $sessionValue =  $lastVisit->region . " " . $lastVisit->country;
         $request->session()->put('lastVisit', $sessionValue);
     }
