@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\LastVisit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Lang;
+use Stevebauman\Location\Facades\Location;
 
 class HomeController extends Controller
 {
@@ -23,26 +25,39 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        $lang = Lang::locale();
-        $test = trans('welcome.header');
+        $this->setLastVisitLocation($request);
+        $lastVisitSession = null;
         if (Auth::user()) {   // Check is user logged in
+
             return view('home');
         }
-        return view('et', compact('lang', 'test'));
+         return view('et', compact('lang', 'test'));
 
     }
 
-    private function setLastVisitLocation(String $region, String $country)
+    private function setLastVisitLocation(Request $request)
     {
-        //get the last location from the db
-        //compare if they are the same
-        //if not update else keep it
-        //  set a cookie or session with the value
-//if the session exists compare if its different to the one in the db
-        
+        $lastVisitSession = session('lastVisit');
 
-        $request->session()->put('lang', $locale);
+        if (!$lastVisitSession) {
+            echo 'if';
+            $location = Location::get('https://' . $request->ip());
+            $lastVisitSession = [$location->regionName, $location->countryCode];
+        } else {
+            $lastVisitSession = explode(' ', $lastVisitSession);
+        }
+
+        [$region, $country] = $lastVisitSession;
+
+        $lastVisit = LastVisit::orderBy('id', 'DESC')->firstOrNew();
+        if ($lastVisit->region != $region || $lastVisit->country != $country) {
+            $lastVisit->update(['region' => $region, 'country' => $country]);
+        }
+
+        $sessionValue =  $lastVisit->region . " " . $lastVisit->country;
+        $request->session()->put('lastVisit', $sessionValue);
     }
+
 }

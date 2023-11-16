@@ -96,7 +96,7 @@
             <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
                 © {{now()->year}} Made with love by:
                 <a class="text-reset fw-bold" href="https://github.com/sagastvme">Sagastvme</a>
-                <span>Last user who visited this website is from {{session('lang')}} </span>
+                <span>Last user who visited this website is from {{session('lastVisit')}} </span>
             </div>
 
         </footer>
