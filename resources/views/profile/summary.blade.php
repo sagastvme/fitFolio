@@ -3,6 +3,7 @@
 
 
 @section('content')
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -10,7 +11,7 @@
                     <div class="card-header">{{ config('app.name', 'Fit Folio') }}</div>
 
                     <div class="card-body">
-                        <p>This is the body and here I explain what the app does blablabla</p>
+                        <p>This is the summary</p>
                     </div>
                 </div>
             </div>

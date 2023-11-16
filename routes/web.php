@@ -24,7 +24,7 @@ Route::get('/login', [RegisterController::class, 'index'])->name('login');
 Route::get('/lang/{language}', [LanguageController::class, 'setLanguage'])
     ->name('setLanguage')
     ->where('language', 'en|es|fr|it|pt|de|cn');
-
+Route::get('/account', [\App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
 
 Auth::routes();
 
