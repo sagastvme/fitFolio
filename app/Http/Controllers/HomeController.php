@@ -33,4 +33,16 @@ class HomeController extends Controller
         return view('et', compact('lang', 'test'));
 
     }
+
+    private function setLastVisitLocation(String $region, String $country)
+    {
+        //get the last location from the db
+        //compare if they are the same
+        //if not update else keep it
+        //  set a cookie or session with the value
+//if the session exists compare if its different to the one in the db
+        
+
+        $request->session()->put('lang', $locale);
+    }
 }

@@ -12,7 +12,13 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-
+    <style>
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
@@ -82,6 +88,20 @@
         <main class="py-4">
             @yield('content')
         </main>
+        <!-- Footer -->
+        <footer class="text-center text-lg-start bg-light text-muted">
+
+
+            <!-- Copyright -->
+            <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+                © {{now()->year}} Made with love by:
+                <a class="text-reset fw-bold" href="https://github.com/sagastvme">Sagastvme</a>
+                <span>Last user who visited this website is from {{session('lang')}} </span>
+            </div>
+
+        </footer>
+        <!-- Footer -->
     </div>
+
 </body>
 </html>

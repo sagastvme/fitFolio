@@ -11,7 +11,7 @@
                     <div class="card-header">{{ config('app.name', 'Fit Folio') }}</div>
 
                     <div class="card-body">
-                        <p>This is the summary</p>
+                        <p>This is the summary {{session('lang')}}</p>
                     </div>
                 </div>
             </div>
