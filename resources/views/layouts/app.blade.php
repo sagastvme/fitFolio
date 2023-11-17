@@ -64,6 +64,9 @@
                                     <a class="dropdown-item" href="{{ route('profile') }}">
                                         {{__('auth_routes.profile')}}
                                     </a>
+                                    <a class="dropdown-item" href="{{ route('routine') }}">
+                                        {{__('auth_routes.routine')}}
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('home') }}">
                                         {{__('auth_routes.home')}}
                                     </a>
@@ -95,6 +98,7 @@
                 © {{now()->year}} Made with love by:
                 <a class="text-reset fw-bold" href="{{config('dev.github', 'https://github.com/sagastvme')}}">{{ config('app.dev', 'Sagastvme') }}</a>
                 <span>Last user who visited this website is from {{session('lastVisit')}} </span>
+                <span>This is a lot of images that when you click changes the lang</span>
             </div>
 
         </footer>

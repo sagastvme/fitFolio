@@ -1,5 +1,6 @@
 <?php
 return [
     'profile'=>'My profile',
-    'home'=>'Home'
+    'home'=>'Home',
+    'routine'=>'My Routine'
 ];

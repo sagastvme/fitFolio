@@ -25,6 +25,7 @@ Route::get('/lang/{language}', [LanguageController::class, 'setLanguage'])
     ->name('setLanguage')
     ->where('language', 'en|es|fr|it|pt|de|cn');
 Route::get('/account', [\App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
+Route::get('/routine', [\App\Http\Controllers\RoutineController::class, 'index'])->name('routine');
 
 Auth::routes();
 

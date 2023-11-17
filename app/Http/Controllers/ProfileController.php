@@ -16,6 +16,7 @@ class ProfileController extends Controller
     public function index(Request $request){
         $locationData = Location::get('https://'.$request->ip());
         $location = $locationData->regionName . ", ". $locationData->countryCode;
+        $user = Auth::user();
         return view('profile.summary', compact('location'));
 
     }
