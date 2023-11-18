@@ -17,7 +17,7 @@
                         <p>Days following your routine [0 days]</p>
                         <p>Your routine is X days long</p>
                         <p>Heres a summary [for loop]</p>
-                        <p>Each day is a link to /monday or in their lang that gets the info</p>
+                        <p>There should also be a table displaying eachs day info Each day is a link to /monday or in their lang that gets the info</p>
                         <p>Monday: Pech, Abs, Leg</p>
                         <p>Tuesday: Pech, Abs, Leg</p>
                         <p>Wednesday: Pech, Abs, Leg</p>
