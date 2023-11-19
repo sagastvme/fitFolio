@@ -15,7 +15,7 @@ use \App\Http\Controllers\LanguageController;
 |
 */
 Route::get('/', [HomeController::class, 'index'])->name('home');
-
+//plan the routes better
 
 
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
