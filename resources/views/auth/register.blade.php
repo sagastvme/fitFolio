@@ -61,6 +61,34 @@
                             </div>
                         </div>
 
+
+                        <div class="row mb-3">
+                            <label for="height" class="col-md-4 col-form-label text-md-end">{{ __('Height (cm)') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="height" maxlength="3" type="number" class="form-control @error('height') is-invalid @enderror" name="height" required autocomplete="height">
+
+                                @error('height')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="weight" class="col-md-4 col-form-label text-md-end">{{ __('Weight (kg)') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="weight" maxlength="3" type="number" class="form-control @error('weight') is-invalid @enderror" name="weight" required autocomplete="weight">
+
+                                @error('weight')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
