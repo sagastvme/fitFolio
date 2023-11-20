@@ -66,6 +66,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $bmi = $this->calculateBMI( $data['height'], $data['weight']);
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -73,7 +74,15 @@ class RegisterController extends Controller
             'actual_weight' => $data['weight'],
             'initial_height' => $data['height'],
             'actual_height' => $data['height'],
+            'initial_bmi'=> $bmi,
+            'actual_bmi'=>$bmi,
             'password' => Hash::make($data['password']),
         ]);
+    }
+    private function calculateBMI($height, $weight): float
+    {
+        $bmi = ($weight/$height/$height) * 10000;
+        return round($bmi,0);
+
     }
 }
