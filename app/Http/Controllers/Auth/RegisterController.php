@@ -76,6 +76,7 @@ class RegisterController extends Controller
             'actual_height' => $data['height'],
             'initial_bmi'=> $bmi,
             'actual_bmi'=>$bmi,
+            'goal'=>$data['goal'],
             'password' => Hash::make($data['password']),
         ]);
     }

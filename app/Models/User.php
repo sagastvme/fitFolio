@@ -26,7 +26,8 @@ class User extends Authenticatable
         'actual_height',
         'actual_weight',
         'initial_bmi',
-        'actual_bmi'
+        'actual_bmi',
+        'goal'
     ];
 
     /**

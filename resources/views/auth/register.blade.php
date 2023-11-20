@@ -88,6 +88,22 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="row mb-3">
+                                <label for="goal" class="col-md-4 col-form-label text-md-end">{{ __('Goal') }}</label>
+                            <div class="col-md-6">
+
+                               <select class="form-control ><option value="Gain_muscle">Gain muscle</option>
+                                   <option value="Gain_muscle">Loose fat</option>
+                                   <option value="Gain_muscle">Gain muscle</option>
+                                   <option value="Gain_muscle">Stay fit</option>
+                               </select>
+                                @error('goal')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">

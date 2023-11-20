@@ -16,11 +16,11 @@
                         <p>Your email {{Illuminate\Support\Facades\Auth::user()->email }}</p>
                         <p>Account created {{Illuminate\Support\Facades\Auth::user()->created_at->format('d/m/Y') }}</p>
                         <p>Account created {{Illuminate\Support\Facades\Auth::user()->created_at->diffForHumans()}}</p>
-                        <p>Your height 184cm</p>
-                        <p>Your initial weight 184cm</p>
-                        <p>Your initial BMI 184cm</p>
-                        <p>Your actual weight 184cm</p>
-                        <p>Your actual BMI 184cm</p>
+                        <p>Your height {{Illuminate\Support\Facades\Auth::user()->initial_height }} cm</p>
+                        <p>Your initial weight {{Illuminate\Support\Facades\Auth::user()->initial_height }} kg</p>
+                        <p>Your initial BMI {{Illuminate\Support\Facades\Auth::user()->initial_bmi }}</p>
+                        <p>Your actual weight {{Illuminate\Support\Facades\Auth::user()->actual_weight }} kg</p>
+                        <p>Your actual BMI {{Illuminate\Support\Facades\Auth::user()->actual_bmi }}</p>
                     </div>
                 </div>
             </div>
