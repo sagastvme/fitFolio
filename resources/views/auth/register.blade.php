@@ -66,7 +66,7 @@
                             <label for="height" class="col-md-4 col-form-label text-md-end">{{ __('Height (cm)') }}</label>
 
                             <div class="col-md-6">
-                                <input id="height" maxlength="3" type="number" class="form-control @error('height') is-invalid @enderror" name="height" required autocomplete="height">
+                                <input value="{{ old('height') }}" id="height" maxlength="3" type="number" class="form-control @error('height') is-invalid @enderror" name="height" required autocomplete="height">
 
                                 @error('height')
                                 <span class="invalid-feedback" role="alert">
@@ -79,7 +79,7 @@
                             <label for="weight" class="col-md-4 col-form-label text-md-end">{{ __('Weight (kg)') }}</label>
 
                             <div class="col-md-6">
-                                <input id="weight" maxlength="3" type="number" class="form-control @error('weight') is-invalid @enderror" name="weight" required autocomplete="weight">
+                                <input id="weight" value="{{ old('weight') }}" maxlength="3" type="number" class="form-control @error('weight') is-invalid @enderror" name="weight" required autocomplete="weight">
 
                                 @error('weight')
                                 <span class="invalid-feedback" role="alert">
@@ -92,10 +92,10 @@
                                 <label for="goal" class="col-md-4 col-form-label text-md-end">{{ __('Goal') }}</label>
                             <div class="col-md-6">
 
-                               <select class="form-control ><option value="Gain_muscle">Gain muscle</option>
-                                   <option value="Gain_muscle">Loose fat</option>
-                                   <option value="Gain_muscle">Gain muscle</option>
-                                   <option value="Gain_muscle">Stay fit</option>
+                               <select  id="goal" name="goal" class="form-control @error('goal') is-invalid @enderror" >
+                                   <option selected value="Loose fat">Loose fat</option>
+                                   <option value="Gain muscle">Gain muscle</option>
+                                   <option value="Stay fit">Stay fit</option>
                                </select>
                                 @error('goal')
                                 <span class="invalid-feedback" role="alert">

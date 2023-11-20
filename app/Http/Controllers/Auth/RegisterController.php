@@ -49,11 +49,13 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        var_dump($data);
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'weight' => ['required', 'integer', 'min:30', 'max:300'],
             'height' => ['required', 'integer', 'min:30', 'max:300'],
+            'goal'=>[ ' in:Gain muscle,Loose fat,Stay fit'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
