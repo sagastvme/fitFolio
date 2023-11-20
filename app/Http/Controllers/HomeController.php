@@ -30,7 +30,6 @@ class HomeController extends Controller
         $this->setLastVisitLocation($request);
         $lastVisitSession = null;
         if (Auth::user()) {   // Check is user logged in
-
             return view('home');
         }
          return view('et');

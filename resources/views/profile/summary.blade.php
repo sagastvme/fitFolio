@@ -4,6 +4,7 @@
 
 @section('content')
 
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -13,6 +14,7 @@
                         {{ Illuminate\Support\Facades\Auth::user()->name }}
                     </div>
                     <div class="card-body">
+                        <p>Today {{$today}} you have to train  SUMMARY OF TODAYS WORKOUT AND LINK</p>
                         <p>Your email {{Illuminate\Support\Facades\Auth::user()->email }}</p>
                         <p>Account created {{Illuminate\Support\Facades\Auth::user()->created_at->format('d/m/Y') }}</p>
                         <p>Account created {{Illuminate\Support\Facades\Auth::user()->created_at->diffForHumans()}}</p>
@@ -21,6 +23,7 @@
                         <p>Your initial BMI {{Illuminate\Support\Facades\Auth::user()->initial_bmi }}</p>
                         <p>Your actual weight {{Illuminate\Support\Facades\Auth::user()->actual_weight }} kg</p>
                         <p>Your actual BMI {{Illuminate\Support\Facades\Auth::user()->actual_bmi }}</p>
+                        <p>Your goal is to {{Illuminate\Support\Facades\Auth::user()->goal }}</p>
                     </div>
                 </div>
             </div>
