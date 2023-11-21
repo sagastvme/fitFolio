@@ -12,6 +12,9 @@
                     <div class="card-header">
                         {{ __('account_settings.title') }}
                         {{ Illuminate\Support\Facades\Auth::user()->name }}
+                        <a class="dropdown-item" href="{{ route('edit') }}">
+                            {{__('auth_routes.edit')}}
+                        </a>
                     </div>
                     <div class="card-body">
                         <p>Today {{$today}} you have to train  SUMMARY OF TODAYS WORKOUT AND LINK</p>
