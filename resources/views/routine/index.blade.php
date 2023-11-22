@@ -12,7 +12,6 @@
                         Your routine summary
                     </div>
                     <div class="card-body">
-                        <p>This is a link to edit your routine</p>
                        <p>Days you have failed your routine [0 days]</p>
                         <p>Days following your routine [0 days]</p>
                         <p>Your routine is X days long</p>
