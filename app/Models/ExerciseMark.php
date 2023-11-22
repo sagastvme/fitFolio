@@ -10,6 +10,7 @@ class ExerciseMark extends Model
     use HasFactory;
     protected $fillable = [
         'exercise_id',
-        'mark'
+        'mark',
+        'alternate_id'
     ];
 }

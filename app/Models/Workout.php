@@ -9,10 +9,17 @@ class Workout extends Model
 {
     use HasFactory;
 
+    public mixed $name;
+    public mixed $day;
+    public mixed $duration;
+    public mixed $user_id;
+    public mixed $alternate_id;
     protected $fillable = [
         'user_id',
         'name',
         'day',
-        'duration'
+        'duration',
+        'alternate_id'
+
     ];
 }
