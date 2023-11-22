@@ -12,6 +12,12 @@
                         Your routine summary
                     </div>
                     <div class="card-body">
+                        <form action="{{route('routine')}}" method="POST">
+                            @csrf
+                            <label for="workout">New workout test</label>
+                            <input type="text"  id="workout">
+                            <button>Send lol</button>
+                        </form>
                        <p>Days you have failed your routine [0 days]</p>
                         <p>Days following your routine [0 days]</p>
                         <p>Your routine is X days long</p>

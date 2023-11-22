@@ -15,4 +15,7 @@ class RoutineController extends Controller
     public function index(){
         return view('routine.index');
     }
+    public  function insert(){
+        dd('hola');
+    }
 }

@@ -26,6 +26,7 @@ Route::get('/lang/{language}', [LanguageController::class, 'setLanguage'])
     ->where('language', 'en|es|fr|it|pt|de|cn');
 Route::get('/account', [\App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
 Route::get('/routine', [\App\Http\Controllers\RoutineController::class, 'index'])->name('routine');
+Route::post('/routine', [\App\Http\Controllers\RoutineController::class, 'insert'])->name('routine');
 Route::get('/routine/edit', [\App\Http\Controllers\UpdateController::class, 'index'])->name('edit');
 Route::post('/routine/edit', [\App\Http\Controllers\UpdateController::class, 'insert'])->name('edit');
 
