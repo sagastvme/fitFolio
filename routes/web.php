@@ -30,6 +30,8 @@ Route::post('/routine', [\App\Http\Controllers\RoutineController::class, 'insert
 Route::get('/routine/workout', [\App\Http\Controllers\WorkoutController::class, 'index'])->name('workout');
 Route::post('/routine/workout', [\App\Http\Controllers\WorkoutController::class, 'insert'])->name('add_workout');
 Route::get('/workout/{id}', [\App\Http\Controllers\WorkoutController::class, 'insert'])->name('workout.show');
+Route::get('/workout/{id}/add_exercise', [\App\Http\Controllers\ExerciseController::class, 'insert'])->name('workout.insert');
+Route::post('/workout/{id}/add_exercise', [\App\Http\Controllers\ExerciseController::class, 'insert_exercise'])->name('workout.insert.exercise');
 Route::get('/routine/edit', [\App\Http\Controllers\UpdateController::class, 'index'])->name('edit');
 Route::post('/routine/edit', [\App\Http\Controllers\UpdateController::class, 'insert'])->name('edit');
 

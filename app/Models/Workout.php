@@ -46,6 +46,11 @@ class Workout extends Model
         return $this['duration'];
     }
 
+    public function getId(){
+        return $this['id'];
+    }
+
+
     public function getAlternateId()
     {
         return $this['alternate_id'];
