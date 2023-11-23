@@ -27,6 +27,9 @@ Route::get('/lang/{language}', [LanguageController::class, 'setLanguage'])
 Route::get('/account', [\App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
 Route::get('/routine', [\App\Http\Controllers\RoutineController::class, 'index'])->name('routine');
 Route::post('/routine', [\App\Http\Controllers\RoutineController::class, 'insert'])->name('routine');
+Route::get('/routine/workout', [\App\Http\Controllers\WorkoutController::class, 'index'])->name('workout');
+Route::post('/routine/workout', [\App\Http\Controllers\WorkoutController::class, 'insert'])->name('add_workout');
+Route::get('/workout/{id}', [\App\Http\Controllers\WorkoutController::class, 'insert'])->name('workout.show');
 Route::get('/routine/edit', [\App\Http\Controllers\UpdateController::class, 'index'])->name('edit');
 Route::post('/routine/edit', [\App\Http\Controllers\UpdateController::class, 'insert'])->name('edit');
 
