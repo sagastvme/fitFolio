@@ -5,16 +5,32 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Details of workout</div>
+                    <div class="card-header">Details of Workout</div>
 
-                    <h1>Name {{$workout->getName()}}</h1>
-                    <h2>This workout is for {{$workout->getDay()}}</h2>
-                    <p>Duration {{$workout->getDuration()}} mins</p>
-                    <p>{{$workout->getDay()}}</p>
+                    <div class="card-body">
+                        <h1 class="card-title">Name: {{ $workout->getName() }}</h1>
+                        <h2 class="card-subtitle mb-2">This workout is for {{ $workout->getDay() }}</h2>
+                        <p class="card-text">Duration: {{ $workout->getDuration() }} mins</p>
 
+                        @foreach($workout->exercises as $exercise)
+                            <div class="card mt-3">
+                                <div class="card-body">
+                                    @foreach($exercise->getAttributes() as $attribute => $value)
+                                        @unless(Str::contains($attribute, 'id'))
+                                            @if($attribute === 'created_at' || $attribute === 'updated_at')
+                                                <p class="card-text">{{ ucfirst(str_replace('_', ' ', $attribute)) }}: {{ date('d-M-y', strtotime($value)) }}</p>
+                                            @else
+                                                <p class="card-text">{{ ucfirst(str_replace('_', ' ', $attribute)) }}: {{ $value }}</p>
+                                            @endif
+                                        @endunless
+                                    @endforeach
+{{--                                    <p class="card-text"><a href="{{ route('workout.edit', ['id' => $exercise->getId()]) }}">Link to edit the exercise</a></p>--}}
+                                </div>
+                            </div>
+                        @endforeach
 
-                    <p>This is a list of all the exercises LOOP</p>
-                    <a href="{{route('workout.insert', ['id'=>$workout->getId()])}}">Add an exercise</a>
+                        <a class="btn btn-primary mt-3" href="{{ route('workout.insert', ['id' => $workout->getId()]) }}">Add an exercise</a>
+                    </div>
                 </div>
             </div>
         </div>
