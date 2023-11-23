@@ -13,7 +13,7 @@
                     @foreach($workouts as $w)
                         <a href="{{ route('workout.show', ['id' => $w->id]) }}">{{ $w->getName() }}</a>
                         <p>{{ $w->getName() }}</p>
-                        <p>{{$w->exercises}}</p>
+                        <p>{{$w->getDuration()}}</p>
                     @endforeach
 
 

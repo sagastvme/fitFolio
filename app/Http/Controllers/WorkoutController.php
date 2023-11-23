@@ -23,8 +23,7 @@ class WorkoutController extends Controller
     {
         $workout = Workout::findOrFail($id);
         if(!$workout->user_id = auth()->id()) return back();
-        dd('works');
-
+        return view('workout.details', compact('workout'));
     }
 
 

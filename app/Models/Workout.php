@@ -7,11 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Workout extends Model
 {
+    public function getDay(): string
+    {
+        return $this['day'];
+    }
+
+    public function getUserId(): int
+    {
+        return $this['user_id'];
+    }
     use HasFactory;
 
     private ?string $name = null;
-    public string $day;
-    public int $duration;
+    public ?string $day;
+    public ?int $duration = null;
     public int $user_id;
     public ?string $alternate_id = null;
 
@@ -26,9 +35,6 @@ class Workout extends Model
     public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
-
-        // Initialize default values or perform any additional setup here
-        $this->duration = 0; // Example default value for duration
     }
 
     public function getName()
