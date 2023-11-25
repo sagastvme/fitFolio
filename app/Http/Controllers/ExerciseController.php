@@ -18,9 +18,6 @@ class ExerciseController extends Controller
 
         $workout = Workout::findOrFail($id);
         if(!$workout->user_id = auth()->id()) return redirect('home');
-
-
-
         return view('exercise.insert', compact('workout'));
     }
 
