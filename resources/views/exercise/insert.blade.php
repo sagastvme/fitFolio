@@ -54,7 +54,6 @@
 
             <!-- Hidden input for UUID -->
             <input type="hidden" name="alternate_id" value="{{ \Illuminate\Support\Str::uuid() }}">
-<p>this is the gorm to add an exercise</p>
             <input type="hidden" name="workout_id" value="{{ $workout->id }}">
 
             <button type="submit" class="btn btn-primary">Submit</button>
