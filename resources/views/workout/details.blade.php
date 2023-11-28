@@ -30,7 +30,7 @@
                         @endforeach
 
                         <a class="btn btn-primary mt-3" href="{{ route('workout.insert', ['id' => $workout->getId()]) }}">Add an exercise</a>
-                        <a class="btn btn-danger mt-3" href="{{ route('workout.insert', ['id' => $workout->getId()]) }}">Delete an exercise</a>
+                        <a class="btn btn-danger mt-3" href="{{ route('workout.render.delete', ['id' => $workout->getId()]) }}">Delete an exercise</a>
                     </div>
                 </div>
             </div>

@@ -32,4 +32,20 @@ class Exercise extends Model
         'duration' => 'required|integer',
         'alternate_id' => 'required|uuid',
     ];
+
+    public function getName()
+    {
+        return $this['name'];
+    }
+    public function getDuration(){
+        return $this['duration'];
+    }public function getId(){
+        return $this['id'];
+    }public function getMuscleGroup(){
+        return $this['muscle_group'];
+    }public function getType(){
+        return $this['type'];
+    }public function getNotes(){
+        return $this['notes'];
+    }
 }

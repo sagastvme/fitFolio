@@ -47,9 +47,7 @@
                 @error('duration')
                 <div class="text-danger">{{ $message }}</div>
                 @enderror
-                @error('duration')
-                <div class="text-danger">{{ $message }}</div>
-                @enderror
+                
             </div>
 
             <!-- Hidden input for UUID -->

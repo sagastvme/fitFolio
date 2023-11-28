@@ -31,6 +31,8 @@ Route::get('/routine/workout', [\App\Http\Controllers\WorkoutController::class, 
 Route::post('/routine/workout', [\App\Http\Controllers\WorkoutController::class, 'insert'])->name('add_workout');
 Route::get('/workout/{id}', [\App\Http\Controllers\WorkoutController::class, 'insert'])->name('workout.show');
 Route::get('/workout/{id}/add_exercise', [\App\Http\Controllers\ExerciseController::class, 'insert'])->name('workout.insert');
+Route::post('/workout/remove_exercise', [\App\Http\Controllers\ExerciseController::class, 'delete'])->name('exercise.delete');
+Route::get('/workout/{id}/remove_exercise', [\App\Http\Controllers\ExerciseController::class, 'render_delete'])->name('workout.render.delete');
 Route::post('/workout/{id}/add_exercise', [\App\Http\Controllers\ExerciseController::class, 'insert_exercise'])->name('workout.insert.exercise');
 Route::get('/routine/edit', [\App\Http\Controllers\UpdateController::class, 'index'])->name('edit');
 Route::post('/routine/edit', [\App\Http\Controllers\UpdateController::class, 'insert'])->name('edit');
