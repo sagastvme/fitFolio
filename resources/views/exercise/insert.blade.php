@@ -47,13 +47,13 @@
                 @error('duration')
                 <div class="text-danger">{{ $message }}</div>
                 @enderror
-                
+
             </div>
 
             <!-- Hidden input for UUID -->
             <input type="hidden" name="alternate_id" value="{{ \Illuminate\Support\Str::uuid() }}">
             <input type="hidden" name="workout_id" value="{{ $workout->id }}">
-
+<p>This is for inserting an exercise</p>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>

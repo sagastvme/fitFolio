@@ -14,7 +14,9 @@
                         </div>
                     @endif
 
-                        {{ __('auth_routes.ronaldo') }}                    {{ __('You are logged in!') }}
+                        Start with exercise marks
+                    Improve menu
+                    Graphs
                 </div>
             </div>
         </div>
