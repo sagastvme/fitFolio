@@ -44,18 +44,27 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                         @enderror
-                       <p>Days you have failed your routine [0 days]</p>
-                        <p>Days following your routine [0 days]</p>
-                        <p>Your routine is X days long</p>
-                        <p>Heres a summary [for loop]</p>
-                        <p>There should also be a table displaying eachs day info Each day is a link to /monday or in their lang that gets the info</p>
-                        <p>Monday: Pech, Abs, Leg</p>
-                        <p>Tuesday: Pech, Abs, Leg</p>
-                        <p>Wednesday: Pech, Abs, Leg</p>
-                        <p>Thursday: Pech, Abs, Leg</p>
-                        <p>Friday: Pech, Abs, Leg</p>
-                        <p>Saturday: REST</p>
-                        <p>Sunday: REST</p>
+                       <p>You have {{sizeof($workouts)}} workouts</p>
+                        <p>Your routine is {{$totalUniqueDaysCount}} days long</p>
+
+
+                        @foreach($daysOfWeekOrder as $day => $order)
+                            <p>Workout for {{ $day }}</p>
+
+                            @php
+                                $workoutsForDay = $workouts->filter(function ($workout) use ($day) {
+                                    return $workout['day'] === $day;
+                                });
+                            @endphp
+
+                            @if($workoutsForDay->isEmpty())
+                                <p>Rest day</p>
+                            @else
+                                @foreach($workoutsForDay as $w)
+                                    <a href="{{ route('workout.show', ['id' => $w->getId()]) }}">{{ $w->getName() }}</a>
+                                @endforeach
+                            @endif
+                        @endforeach
                     </div>
                 </div>
             </div>

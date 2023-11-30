@@ -16,7 +16,27 @@ class RoutineController extends Controller
 
 
     public function index(){
-        return view('routine.index');
+        $daysOfWeekOrder = [
+            'Monday' => 1,
+            'Tuesday' => 2,
+            'Wednesday' => 3,
+            'Thursday' => 4,
+            'Friday' => 5,
+            'Saturday' => 6,
+            'Sunday' => 7,
+        ];
+        $workouts = auth()->user()->workouts->sortBy(function ($workout) use ($daysOfWeekOrder) {
+
+
+            return $daysOfWeekOrder[$workout['day']];
+        });
+
+        $uniqueDays = $workouts->unique('day')->pluck('day')->values();
+
+        $totalUniqueDaysCount = count($uniqueDays);
+
+
+        return view('routine.index', compact('workouts', 'totalUniqueDaysCount', 'daysOfWeekOrder'));
     }
     public  function insert(Request $request){
         $validator = Validator::make($request->all(), [
