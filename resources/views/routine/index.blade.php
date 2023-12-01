@@ -58,7 +58,7 @@
                             @endphp
 
                             @if($workoutsForDay->isEmpty())
-                                <p>Rest day</p>
+                                <p class="accordion-button">Rest day</p>
                             @else
                                 @foreach($workoutsForDay as $w)
                                     <a href="{{ route('workout.show', ['id' => $w->getId()]) }}">{{ $w->getName() }}</a>
