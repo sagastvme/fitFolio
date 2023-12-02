@@ -50,7 +50,7 @@
 
                         @foreach($daysOfWeekOrder as $day => $order)
                             <p>Workout for {{ $day }}</p>
-
+                            <p>This is the day for your exercise</p>
                             @php
                                 $workoutsForDay = $workouts->filter(function ($workout) use ($day) {
                                     return $workout['day'] === $day;
