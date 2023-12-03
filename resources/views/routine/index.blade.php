@@ -9,7 +9,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        Your routine summary @error('name') cant print the error lol @enderror
+                        Your routine summary
                     </div>
                     <div class="card-body">
 
@@ -20,7 +20,7 @@
                         @enderror
                         @error('name')
                         <span class="invalid-feedback" role="alert">
-                                        <strong>dsaaaaaaaaaaaa{{$message }}</strong>
+                                        <strong>{{$message }}</strong>
                                     </span>
                         @enderror
                         @error('day')
