@@ -11,6 +11,7 @@ class ExerciseMark extends Model
     protected $fillable = [
         'exercise_id',
         'mark',
-        'alternate_id'
+        'alternate_id',
+
     ];
 }

@@ -29,6 +29,8 @@
                                             @endif
                                         @endunless
                                     @endforeach
+                                        <a href="{{route('exercise.track', ['id'=>$workout->getId(), 'ex_id'=>$exercise->getId()])}}">Track exercise</a>
+
                                 </div>
                             </div>
                         @endforeach

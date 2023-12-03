@@ -74,5 +74,14 @@ class ExerciseController extends Controller
 
     }
 
+    public function track(Request $request, $id, $ex_id){
+        $workout = Workout::findOrFail($id);
+        if(!$workout->user_id = auth()->id()) return redirect('home');
+        $exercise = $workout->exercises()->where('id', $ex_id)->firstOrFail();
+        $marks = $exercise->marks();
+        return view('exercise.track');
+        dd($exercise->getName());
+    }
+
 
 }

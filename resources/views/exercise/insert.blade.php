@@ -49,11 +49,23 @@
                 @enderror
 
             </div>
+            <div class="mb-3">
+                <label for="objective" class="form-label">Objective of the exercise</label>
+                <span>// - 'Increase units': The more units (e.g., time, weight), the better.
+                // - 'Decrease units': The less units (e.g., time, weight), the better.</span>
+                <select class="form-select" name="objective" id="objective">
+                    <option value="Increase" {{ old('objective') == 'Increase' ? 'selected' : '' }}>Increase</option>
+                    <option value="Decrease" {{ old('objective') == 'Decrease' ? 'selected' : '' }}>Decrease</option>
+                </select>
+                @error('objective')
+                <div class="text-danger">{{ $message }}</div>
+                @enderror
+
+            </div>
 
             <!-- Hidden input for UUID -->
             <input type="hidden" name="alternate_id" value="{{ \Illuminate\Support\Str::uuid() }}">
             <input type="hidden" name="workout_id" value="{{ $workout->id }}">
-<p>This is for inserting an exercise</p>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>

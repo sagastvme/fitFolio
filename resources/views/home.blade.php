@@ -13,8 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                        Start with exercise marks
+Insert/delete exercise marks
                     Improve menu
                     Graphs
                 </div>

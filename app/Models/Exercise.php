@@ -13,6 +13,7 @@ class Exercise extends Model
     const TYPE_WEIGHT = 'Weight';
 
 
+
     protected $fillable = [
         'workout_id',
         'name',
@@ -31,6 +32,7 @@ class Exercise extends Model
         'type' => 'required|in:'.self::TYPE_CARDIO.','.self::TYPE_WEIGHT,
         'duration' => 'required|integer',
         'alternate_id' => 'required|uuid',
+        'objective'=>'required|in:Increase,Decrease'
     ];
 
     public function getName()
@@ -47,5 +49,11 @@ class Exercise extends Model
         return $this['type'];
     }public function getNotes(){
         return $this['notes'];
+    }public function getObjective(){
+        return $this['objective'];
+    }
+    public function marks()
+    {
+        return $this->hasMany(ExerciseMark::class);
     }
 }
