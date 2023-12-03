@@ -13,6 +13,9 @@ class RoutineController extends Controller
     public function __construct(){
         $this->middleware('auth');
     }
+    public function add_workout(){
+        return view('routine.insert');
+    }
 
 
     public function index(){
