@@ -12,6 +12,14 @@ class ExerciseMark extends Model
         'exercise_id',
         'mark',
         'alternate_id',
-
+        'id'
     ];
+    public function getMark(){
+        return $this['mark'];
+    }  public function getId(){
+        return $this['id'];
+    }
+    public function getCreated(){
+        return $this['created_at'];
+    }
 }

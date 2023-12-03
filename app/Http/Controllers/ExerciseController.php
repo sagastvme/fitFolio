@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Exercise;
+use App\Models\ExerciseMark;
 use App\Models\Workout;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Psy\Util\Str;
 
 class ExerciseController extends Controller
 {
@@ -78,10 +80,50 @@ class ExerciseController extends Controller
         $workout = Workout::findOrFail($id);
         if(!$workout->user_id = auth()->id()) return redirect('home');
         $exercise = $workout->exercises()->where('id', $ex_id)->firstOrFail();
-        $marks = $exercise->marks();
-        return view('exercise.track');
-        dd($exercise->getName());
+        $marks = $exercise->marks;
+        return view('exercise.track', compact('marks', 'exercise', 'id', 'ex_id'));
     }
+
+    public function add_track(Request $request, $id, $ex_id){
+        $workout = Workout::findOrFail($id);
+        if(!$workout->user_id = auth()->id()) return redirect('home');
+        $exercise = $workout->exercises()->where('id', $ex_id)->firstOrFail();
+        $latest = $exercise->marks->last() ?? 0;
+        $latest = is_object($latest) ? $latest->getMark() : 0;
+        return view('marks.insert', compact( 'exercise', 'latest'));
+    }
+    public function insert_track(Request $request, $id, $ex_id){
+        $workout = Workout::findOrFail($id);
+        if(!$workout->user_id = auth()->id()) return redirect('home');
+        $exercise = $workout->exercises()->where('id', $ex_id)->firstOrFail();
+        $validator = Validator::make($request->all(), [
+            'mark' => ['required', 'integer']]);
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+        $mark = new ExerciseMark([
+            'mark' => $request->get('mark'),
+            'alternate_id'=>uuid_create()
+        ]);
+
+        // Associate the ExerciseMark with the Exercise
+        $exercise->marks()->save($mark);
+
+        return redirect()->route('exercise.track', ['id' => $id, 'ex_id' => $ex_id]);
+
+    }
+
+    public function show_delete_track(Request $request, $id, $ex_id)
+    {
+        $workout = Workout::findOrFail($id);
+        if(!$workout->user_id = auth()->id()) return redirect('home');
+        $exercise = $workout->exercises()->where('id', $ex_id)->firstOrFail();
+        $marks = $exercise->marks;
+        return view('exercise.show_delete', compact('marks',  'id', 'exercise'));
+    }
+
 
 
 }

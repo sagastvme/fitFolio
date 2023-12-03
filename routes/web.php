@@ -34,6 +34,12 @@ Route::post('/routine/workout', [\App\Http\Controllers\WorkoutController::class,
 Route::get('/routine/workout/add',[\App\Http\Controllers\RoutineController::class, 'add_workout'])->name('add_workout');
 Route::get('/routine/workout/{id}', [\App\Http\Controllers\WorkoutController::class, 'insert'])->name('workout.show');
 Route::get('/routine/workout/{id}/exercise/{ex_id}', [\App\Http\Controllers\ExerciseController::class, 'track'])->name('exercise.track');
+Route::get('/routine/workout/{id}/exercise/{ex_id}/add', [\App\Http\Controllers\ExerciseController::class, 'add_track'])->name('exercise.track.add');
+Route::post('/routine/workout/{id}/exercise/{ex_id}/add', [\App\Http\Controllers\ExerciseController::class, 'insert_track'])->name('exercise.track.add');
+Route::get('/routine/workout/{id}/exercise/{ex_id}/delete', [\App\Http\Controllers\ExerciseController::class, 'show_delete_track'])->name('exercise.track.delete');
+Route::post('/routine/workout/{id}/exercise/{ex_id}/delete', [\App\Http\Controllers\ExerciseController::class, 'delete_track'])->name('exercise.track.delete');
+
+
 Route::get('/routine/workout/{id}/add_exercise', [\App\Http\Controllers\ExerciseController::class, 'insert'])->name('workout.insert');
 Route::post('/routine/workout/remove_exercise', [\App\Http\Controllers\ExerciseController::class, 'delete'])->name('exercise.delete');
 Route::get('/routine/workout/{id}/remove_exercise', [\App\Http\Controllers\ExerciseController::class, 'render_delete'])->name('workout.render.delete');
