@@ -32,6 +32,7 @@
                                 <td>I should add if its kg or minutes</td>
                             </tr>
                         @endforeach
+                        <p>this is the foreach wehere i display the button</p>
                                <tr>
                                    <td>Delete selected tracks missing fn</td>
                                </tr>
