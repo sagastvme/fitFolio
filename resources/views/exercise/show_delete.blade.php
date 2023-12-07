@@ -31,6 +31,7 @@
                                 <td>  <label for="exercise_{{ $mark->getId() }}">{{ $mark->getMark() }}</label></td>
                                 <td>I should add if its kg or minutes</td>
                             </tr>
+                            <p>Valencia 2012</p>
                         @endforeach
                         <p>this is the foreach wehere i display the button</p>
                                <tr>
