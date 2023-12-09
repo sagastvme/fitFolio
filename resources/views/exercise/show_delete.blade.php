@@ -41,8 +41,9 @@
                         @endforeach
                                <tr>
                                    <td>
-                                       <input type="submit" value="Delete selected values">
-                                    </td>
+                                       <input type="submit" value="Delete selected values" class="btn btn-danger">
+                                   </td>
+
                                </tr>
                                     </tbody>
                                 </table>
