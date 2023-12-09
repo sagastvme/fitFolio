@@ -26,7 +26,7 @@
 
                         <div class="d-flex justify-content-between">
                             <a href="{{ route('exercise.track.add', ['id' => $id, 'ex_id' => $ex_id]) }}" class="btn btn-primary">Add tracking value</a>
-                            <a href="{{ route('exercise.track.add', ['id' => $id, 'ex_id' => $ex_id]) }}" class="btn btn-danger">Delete tracking value</a>
+                            <a href="{{ route('exercise.track.delete', ['id' => $id, 'ex_id' => $ex_id]) }}" class="btn btn-danger">Delete tracking value</a>
                         </div>
                     </div>
                 </div>

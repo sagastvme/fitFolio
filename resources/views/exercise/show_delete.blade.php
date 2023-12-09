@@ -10,7 +10,14 @@
                     </div>
 
                     <div class="card-body">
-                        <form action="{{ route('exercise.delete') }}" method="post">
+                        @error('selected_marks')
+                        <div class="alert alert-danger" role="alert">
+                            {{ $message }}
+                        </div>
+                        @enderror
+
+
+                        <form action="{{ route('exercise.track.delete', [ 'id'=>$id, 'ex_id'=>$exercise->getId()]) }}" method="post">
                             @csrf
                             <div class="table-responsive">
                                 <table class="table">
@@ -29,14 +36,13 @@
                                     <label for="exercise_{{ $mark->getId() }}">{{ $mark->getCreated()->format('l, d F') }}</label>
                                 </td>
                                 <td>  <label for="exercise_{{ $mark->getId() }}">{{ $mark->getMark() }}</label></td>
-                                <td>I should add if its kg or minutes</td>
+                                <td>{{$units}}</td>
                             </tr>
-                            <p>Valencia 2012</p>
-                            p
                         @endforeach
-                        <p>this is the foreach wehere i display the button</p>
                                <tr>
-                                   <td>Delete selected tracks missing fn</td>
+                                   <td>
+                                       <input type="submit" value="Delete selected values">
+                                    </td>
                                </tr>
                                     </tbody>
                                 </table>

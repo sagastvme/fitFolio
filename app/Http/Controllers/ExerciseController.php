@@ -121,7 +121,36 @@ class ExerciseController extends Controller
         if(!$workout->user_id = auth()->id()) return redirect('home');
         $exercise = $workout->exercises()->where('id', $ex_id)->firstOrFail();
         $marks = $exercise->marks;
-        return view('exercise.show_delete', compact('marks',  'id', 'exercise'));
+        if ($exercise->getType()==='Cardio'){
+            $units = 'min';
+        }else{
+            $units='kg';
+        }
+        return view('exercise.show_delete', compact('marks',  'id', 'exercise', 'units'));
+    }
+
+    public function delete_track(Request $request, $id, $ex_id){
+        $validator = Validator::make($request->all(), [
+            'selected_marks' => ['required', 'array', 'min:1'],
+        ],
+            ['selected_marks.required'=>'Please select a tracking value to delete']);
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+        $workout = Workout::findOrFail($id);
+        if(!$workout->user_id = auth()->id()) return redirect('home');
+        $exercise = $workout->exercises()->where('id', $ex_id)->firstOrFail();
+        $db_marks = $exercise->marks;
+        $marks = $request->get('selected_marks');
+        foreach ($marks as $mark) {
+            if (  $db_marks->where('id', $mark)   ){
+                ExerciseMark::findOrFail($mark)->delete();
+            }
+}
+        return redirect()->route('exercise.track', ['id'=>$id, 'ex_id'=>$ex_id]);
+
     }
 
 
