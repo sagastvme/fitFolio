@@ -32,6 +32,7 @@
                                 <td>I should add if its kg or minutes</td>
                             </tr>
                             <p>Valencia 2012</p>
+                            p
                         @endforeach
                         <p>this is the foreach wehere i display the button</p>
                                <tr>
