@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Charts\MonthlyUsersChart;
 use App\Models\Exercise;
 use App\Models\ExerciseMark;
 use App\Models\Workout;
@@ -77,15 +78,12 @@ class ExerciseController extends Controller
 
     }
 
-    public function track(Request $request, $id, $ex_id){
+    public function track(MonthlyUsersChart $chart, Request $request, $id, $ex_id){
         $workout = Workout::findOrFail($id);
         if(!$workout->user_id = auth()->id()) return redirect('home');
         $exercise = $workout->exercises()->where('id', $ex_id)->firstOrFail();
         $marks = $exercise->marks;
-        $chart = (new LarapexChart)->setTitle('Posts')
-            ->setDataset([150, 120])
-            ->setLabels(['Published', 'No Published']);
-
+        $chart = $chart->build();
         return view('exercise.track', compact('marks','chart' ,'exercise', 'id', 'ex_id'));
     }
 
