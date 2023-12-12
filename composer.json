@@ -6,11 +6,13 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
+        "arielmejiadev/larapex-charts": "^6.0",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
         "laravel/ui": "^4.2",
+        "laraveldaily/laravel-charts": "^0.2.3",
         "stevebauman/location": "^7.0"
     },
     "require-dev": {

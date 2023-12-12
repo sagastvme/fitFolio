@@ -1,10 +1,5 @@
 @extends('layouts.app')
-@section('lib')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 
-
-
-@endsection
 
 @section('content')
     <div class="container">
@@ -25,7 +20,11 @@
                                 </div>
                             @endforeach
                         </div>
+                        {!! $chart->container() !!}
 
+                        <script src="{{ $chart->cdn() }}"></script>
+
+                        {{ $chart->script() }}
                         <div class="mb-3">
                             <p class="mb-0">Here should be a graph</p>
                             <canvas id="myChart" style="width:100%;max-width:700px"></canvas>

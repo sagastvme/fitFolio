@@ -7,6 +7,7 @@ use App\Models\ExerciseMark;
 use App\Models\Workout;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use ArielMejiaDev\LarapexCharts\LarapexChart;
 use Psy\Util\Str;
 
 class ExerciseController extends Controller
@@ -81,7 +82,11 @@ class ExerciseController extends Controller
         if(!$workout->user_id = auth()->id()) return redirect('home');
         $exercise = $workout->exercises()->where('id', $ex_id)->firstOrFail();
         $marks = $exercise->marks;
-        return view('exercise.track', compact('marks', 'exercise', 'id', 'ex_id'));
+        $chart = (new LarapexChart)->setTitle('Posts')
+            ->setDataset([150, 120])
+            ->setLabels(['Published', 'No Published']);
+
+        return view('exercise.track', compact('marks','chart' ,'exercise', 'id', 'ex_id'));
     }
 
     public function add_track(Request $request, $id, $ex_id){
@@ -149,6 +154,7 @@ class ExerciseController extends Controller
                 ExerciseMark::findOrFail($mark)->delete();
             }
 }
+
         return redirect()->route('exercise.track', ['id'=>$id, 'ex_id'=>$ex_id]);
 
     }
