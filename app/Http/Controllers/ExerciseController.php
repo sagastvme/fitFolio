@@ -83,6 +83,7 @@ class ExerciseController extends Controller
         if(!$workout->user_id = auth()->id()) return redirect('home');
         $exercise = $workout->exercises()->where('id', $ex_id)->firstOrFail();
         $marks = $exercise->marks;
+        //call new chart method with properties
         $chart = $chart->build();
         return view('exercise.track', compact('marks','chart' ,'exercise', 'id', 'ex_id'));
     }
