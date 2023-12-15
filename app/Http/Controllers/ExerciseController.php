@@ -93,6 +93,7 @@ class ExerciseController extends Controller
         if(!$workout->user_id = auth()->id()) return redirect('home');
         $exercise = $workout->exercises()->where('id', $ex_id)->firstOrFail();
         $latest = $exercise->marks->last() ?? 0;
+        //dar la plasta lol
         $latest = is_object($latest) ? $latest->getMark() : 0;
         return view('marks.insert', compact( 'exercise', 'latest'));
     }
