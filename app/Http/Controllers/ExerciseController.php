@@ -84,6 +84,7 @@ class ExerciseController extends Controller
         $exercise = $workout->exercises()->where('id', $ex_id)->firstOrFail();
         $marks = $exercise->marks;
         //call new chart method with properties
+        //send parameters to function and we are done
         $chart = $chart->build();
         return view('exercise.track', compact('marks','chart' ,'exercise', 'id', 'ex_id'));
     }
