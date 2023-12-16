@@ -85,7 +85,7 @@ class ExerciseController extends Controller
         $marks = $exercise->marks;
         //call new chart method with properties
         //send parameters to function and we are done
-        $chart = $chart->build();
+        $chart = $chart->build('Title', 'subtitle', 'titlex', 'titley', 'datax', 'datay','axis');
         return view('exercise.track', compact('marks','chart' ,'exercise', 'id', 'ex_id'));
     }
 
