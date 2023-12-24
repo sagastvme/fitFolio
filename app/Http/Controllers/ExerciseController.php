@@ -87,6 +87,7 @@ class ExerciseController extends Controller
         //send parameters to function and we are done
         $chart = $chart->build('Title', 'subtitle', 'titlex', 'titley', 'datax', 'datay','axis');
         //not working lol
+        //just made my nextckloud server
         //looking at nas
         return view('exercise.track', compact('marks','chart' ,'exercise', 'id', 'ex_id'));
     }
