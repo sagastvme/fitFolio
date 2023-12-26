@@ -89,7 +89,8 @@ class ExerciseController extends Controller
         //not working lol
         //just made my nextckloud server
         //looking at nas
-        //built nextcloud tomorrow i finish this 
+        //built nextcloud tomorrow i finish this
+        //nextcloud documentation
         return view('exercise.track', compact('marks','chart' ,'exercise', 'id', 'ex_id'));
     }
 
