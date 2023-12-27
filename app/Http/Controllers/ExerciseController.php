@@ -91,6 +91,7 @@ class ExerciseController extends Controller
         //looking at nas
         //built nextcloud tomorrow i finish this
         //nextcloud documentation
+        //looking for a gamte to polay multiplater
         return view('exercise.track', compact('marks','chart' ,'exercise', 'id', 'ex_id'));
     }
 
