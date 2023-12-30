@@ -14,7 +14,7 @@ use Psy\Util\Str;
 class ExerciseController extends Controller
 {
 
-    //
+    //on a trip and i dont want to loose my streak
     public function __construct(){
         $this->middleware('auth');
     }
